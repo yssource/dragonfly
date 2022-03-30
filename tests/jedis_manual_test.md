@@ -1,19 +1,31 @@
 ## Before you begin you need to run the following:
 1. git clone -b jedis-3.3.0 https://github.com/redis/jedis.git
 2. cd jedis
+3. In dragonfly start the server with auth: ./dragonfly -requirepass foobared -port 6379
 
 # Run individual tests
 mvn test -Dtest="AllKindOfValuesCommandsTest,!AllKindOfValuesCommandsTest#restoreReplace+flushAll+flushDB+keys+move+persist+pexpire+pttl+randomKey+renamenx+swapDB+touch+dumpAndRestore"
+
 mvn test -Dtest="BinaryValuesCommandsTest,!BinaryValuesCommandsTest#msetnx+setnx+substr"
+
 mvn test -Dtest="BitCommandsTest,!BitCommandsTest#setAndgetrange+bitCount+bitOp+bitOpNot+bitpos+bitposBinary+bitposWithNoMatchingBitExist+bitposWithNoMatchingBitExistWithinRange+setAndgetbit+testBinaryBitfield+testBitfield+testBinaryBitfieldReadonly+testBitfieldReadonly"
+
 mvn test -Dtest="ConnectionHandlingCommandsTest"
+
 mvn test -Dtest="ControlCommandsTest,!ControlCommandsTest#bgrewriteaof+clientPause+configSet+configGet+memoryDoctorBinary+memoryDoctorString+monitor+waitReplicas"
+
 mvn test -Dtest="HashesCommandsTest,!HashesCommandsTest#hdel+hexists+hgetAll+hgetAllPipeline+hincrByFloat+hkeys+hlen+hmget+hmset+hscan+hscanCount+hscanMatch+hvals+testBinaryHstrLen+testHstrLen"
+
 mvn test -Dtest="ListCommandsTest,!ListCommandsTest#brpoplpush+brpop+linsert+rpoplpush"
+
 mvn test -Dtest="ScriptingCommandsTest"
+
 mvn test -Dtest="SetCommandsTest,!SetCommandsTest#srandmember"
+
 mvn test -Dtest="StringValuesCommandsTest,!StringValuesCommandsTest#incrByFloat+msetnx+setnx+substr"
+
 mvn test -Dtest="TransactionCommandsTest,!TransactionCommandsTest#discard+select+testCloseable+testResetStateWhenInMulti+testResetStateWhenInWatch+unwatch+unwatchWithinMulti+watch"
+
 mvn test -Dtest="VariadicCommandsTest,!VariadicCommandsTest#hdel"
 
 
